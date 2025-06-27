@@ -13,7 +13,6 @@ export const deepClone = <T>(obj: T): T => {
   if (typeof obj !== 'object' || obj === null) return obj as T;
 
   const clone = Array.isArray(obj) ? castTo<T>([]) : ({} as T);
-
   for (const key in obj) {
     const value = obj[key];
 

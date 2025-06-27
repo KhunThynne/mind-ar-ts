@@ -21,13 +21,13 @@ class UI {
     zIndex?: number;
   }) {
     if (uiLoading === CONFIRMATION.YES) this.loadingModal = this._loadHTML(loadingHTML);
-    else this.loadingModal = document.querySelector(uiLoading);
+    else this.loadingModal = document.querySelector(uiLoading)!;
 
     if (uiError === CONFIRMATION.YES) this.compatibilityModal = this._loadHTML(compatibilityHTML);
-    else this.compatibilityModal = document.querySelector(uiError);
+    else this.compatibilityModal = document.querySelector(uiError)!;
 
     if (uiScanning === CONFIRMATION.YES) this.scanningMask = this._loadHTML(scanningHTML);
-    else this.scanningMask = document.querySelector(uiScanning);
+    else this.scanningMask = document.querySelector(uiScanning)!;
 
     this.hideLoading();
     this.hideCompatibility();
@@ -74,8 +74,12 @@ class UI {
     e.innerHTML = html.trim();
 
     const rootNode = e.content.firstChild as ChildNode;
-    document.querySelector(AR_ELEMENT_TAG.A_SCENE).appendChild(rootNode);
-
+    const scene = document.querySelector(AR_ELEMENT_TAG.A_SCENE as string);
+    if (scene) {
+      scene.appendChild(rootNode);
+    } else {
+      console.error('Scene element not found');
+    }
     return rootNode as HTMLElement;
   }
 }

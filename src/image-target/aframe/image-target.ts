@@ -1,5 +1,5 @@
 import { Entity, SystemDefinition } from 'aframe';
-import { Matrix4 } from 'three';
+import { Matrix4, Matrix4Tuple } from 'three';
 import { Helper } from '../../libs';
 import { AR_COMPONENT_NAME, AR_EVENT_NAME } from '../utils/constant/aframe';
 import { IMindARImageSystem } from '../../../types/image-target/aframe';
@@ -50,7 +50,7 @@ AFRAME.registerComponent(AR_COMPONENT_NAME.IMAGE_TARGET, {
     if (!worldMatrix) return;
 
     const m = new AFRAME.THREE.Matrix4();
-    m.elements = worldMatrix;
+    m.elements = worldMatrix as Matrix4Tuple;
 
     m.multiply(this.postMatrix);
     this.el.object3D.matrix = m;

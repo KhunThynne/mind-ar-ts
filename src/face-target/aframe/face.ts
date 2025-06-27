@@ -31,7 +31,7 @@ AFRAME.registerComponent(AR_COMPONENT_NAME.FACE, {
 
     if (this.data.faceOccluder) {
       const faceOccluderMeshEntity = document.createElement(AR_ELEMENT_TAG.A_ENTITY);
-      faceOccluderMeshEntity.setAttribute(AR_COMPONENT_NAME.DEFAULT_OCCLUDER, true);
+      faceOccluderMeshEntity.setAttribute(AR_COMPONENT_NAME.DEFAULT_OCCLUDER, 'true');
       this.el.sceneEl.appendChild(faceOccluderMeshEntity);
     }
 

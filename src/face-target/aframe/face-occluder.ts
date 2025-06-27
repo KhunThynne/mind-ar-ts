@@ -2,7 +2,7 @@ import { Entity } from 'aframe';
 import { AR_COMPONENT_NAME, AR_EVENT_NAME } from '../utils/constant';
 import { AR_ELEMENT_TAG } from '../../utils/constant';
 import { Helper } from '../../libs';
-
+import * as THREE from 'three';
 AFRAME.registerComponent(AR_COMPONENT_NAME.OCCULDER, {
   el: Helper.castTo<Entity>(null),
 

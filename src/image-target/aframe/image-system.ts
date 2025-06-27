@@ -1,5 +1,6 @@
 import Stats from 'stats-js';
 import { Entity } from 'aframe';
+import * as THREE from 'three';
 import UI from '../../ui/ui';
 import Controller from '../controller';
 import { ON_UPDATE_EVENT } from '../utils/constant/controller';
