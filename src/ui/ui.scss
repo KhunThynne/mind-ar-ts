@@ -67,12 +67,9 @@ $primary-color: white;
       height: 100%;
       opacity: 0.8;
 
-      background: linear-gradient(
-            to right,
-            $primary-color $scan-mask-border,
-            transparent $scan-mask-border
-          )
-          0 0,
+      background:
+        linear-gradient(to right, $primary-color $scan-mask-border, transparent $scan-mask-border) 0
+          0,
         linear-gradient(to right, $primary-color $scan-mask-border, transparent $scan-mask-border) 0
           100%,
         linear-gradient(to left, $primary-color $scan-mask-border, transparent $scan-mask-border)

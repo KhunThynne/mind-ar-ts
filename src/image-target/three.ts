@@ -59,7 +59,7 @@ class MindARThree {
     this.cssScene = new THREE.Scene();
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.cssRenderer = new CSS3DRenderer();
-    this.renderer.outputEncoding = THREE.sRGBEncoding;
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.camera = new THREE.PerspectiveCamera();
     this.anchors = [];
@@ -198,16 +198,16 @@ class MindARThree {
               for (let i = 0; i < this.anchors.length; i++) {
                 if (this.anchors[i].targetIndex === targetIndex) {
                   if (this.anchors[i].css)
-                    this.anchors[i].group.children.forEach((obj) => {
-                      (
-                        obj as THREE.Object3D<THREE.Event> & { element: HTMLElement }
-                      ).element.style.visibility = !worldMatrix ? 'hidden' : 'visible';
-                    });
+                    this.anchors[i].group.children.forEach(
+                      (obj: THREE.Object3D & { element: HTMLElement }) => {
+                        obj.element.style.visibility = !worldMatrix ? 'hidden' : 'visible';
+                      }
+                    );
                   else this.anchors[i].group.visible = !!worldMatrix;
 
                   if (worldMatrix) {
                     const m = new THREE.Matrix4();
-                    m.elements = [...worldMatrix];
+                    m.elements = [...worldMatrix] as THREE.Matrix4Tuple;
                     m.multiply(this.postMatrixs[targetIndex]);
 
                     if (this.anchors[i].css) m.multiply(cssScaleDownMatrix);
