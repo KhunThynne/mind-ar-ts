@@ -23,7 +23,8 @@
     "build:watch": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --watch --config webpack.config.dev.ts",
     "lint": "eslint --cache --fix src/*",
     "preview": "vite preview",
-    "generate:face-geometry": "ts-node src/experimental/face-target/face-geometry/face-data-generator.ts"
+    "generate:face-geometry": "ts-node src/experimental/face-target/face-geometry/face-data-generator.ts",
+        "prepare": "npx patch-package || true && husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
