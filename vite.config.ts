@@ -1,15 +1,10 @@
 import { defineConfig } from 'vite';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
-import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
+import dynamicImport from 'vite-plugin-dynamic-import';
 
 export default defineConfig({
   define: {
     'process.env': process.env,
   },
-  plugins: [viteCommonjs()],
-  build: {
-    rollupOptions: {
-      plugins: [dynamicImportVars()],
-    },
-  },
+  plugins: [viteCommonjs(), dynamicImport()],
 });

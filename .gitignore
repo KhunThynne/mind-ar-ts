@@ -9,10 +9,10 @@ lerna-debug.log*
 
 node_modules
 out
-dist-ssr
+# dist-ssr
 *.local
 .eslintcache
-dist
+# dist
 
 # production
 mind-ar-ts-*.tgz
