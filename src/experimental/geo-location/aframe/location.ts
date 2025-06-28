@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AR_STATE } from '../../../utils/constant';
 import { AR_COMPONENT_NAME } from '../../../geo-location/utils/constant';
 

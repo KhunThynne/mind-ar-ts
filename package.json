@@ -6,11 +6,17 @@
     "krsbx",
     "hiukim",
     {
-      "name": "Thynne"
+      "name": "Thynne",
+      "github": "https://github.com/KhunThynne"
     }
   ],
   "main": "index.js",
   "types": "types/mind-ar-ts.d.ts",
+    "files": [
+    "dist/",
+    "types/",
+     "src/"
+  ],
   "scripts": {
     "dev": "vite",
     "build:prod": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config webpack.config.prod.ts",
@@ -71,6 +77,7 @@
     "type": "git",
     "url": "git+https://github.com/krsbx/mind-ar-ts.git"
   },
+
   "bugs": {
     "url": "https://github.com/krsbx/mind-ar-ts.git"
   }
