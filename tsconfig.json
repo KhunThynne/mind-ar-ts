@@ -16,7 +16,8 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "outDir": "out",
+      "declaration": true,
+    "outDir": "out"
   },
   "ts-node": {
     "compilerOptions": {

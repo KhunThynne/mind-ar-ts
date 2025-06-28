@@ -1,5 +1,3 @@
-import * as tf from '@tensorflow/tfjs';
-import * as THREE from 'three';
 import { Scene } from 'aframe';
 import ImageController from './image-target/controller';
 import FaceController from './face-target/controller';
@@ -8,8 +6,9 @@ import ImageCompiler from './image-target/compiler';
 import UI from './ui';
 import ImageThree from './image-target/three';
 import FaceThree from './face-target/three';
-import { Coordinates } from './src/geo-location/utils/geo-location';
-
+import { Coordinates } from '../src/geo-location/utils/types/geo-location';
+import * as tf from '@tensorflow/tfjs';
+import * as THREE from 'three';
 declare global {
   interface Window {
     MINDAR: {
@@ -18,14 +17,14 @@ declare global {
         Compiler: typeof ImageCompiler;
         UI: typeof UI;
         MindARThree: typeof ImageThree;
-        THREE: THREE;
-        tf: tf;
+        THREE: typeof THREE;
+        tf: typeof tf;
       };
       FACE: {
         Controller: typeof FaceController;
         UI: typeof UI;
         MindARThree: typeof FaceThree;
-        THREE: THREE;
+        THREE: typeof THREE;
       };
       LOCATION: {
         Controller: typeof LocationController;
@@ -64,14 +63,14 @@ declare global {
 }
 
 declare module 'mind-ar-ts' {
-  export const imageTarget = {
-    Controller: ImageController,
-    Compiler: ImageCompiler,
-    UI: UI,
+  export const imageTarget: {
+    Controller: typeof ImageController;
+    Compiler: typeof ImageCompiler;
+    UI: typeof UI;
   };
 
-  export const faceTarget = {
-    Controller: FaceController,
-    UI: UI,
+  export const faceTarget: {
+    Controller: typeof FaceController;
+    UI: typeof UI;
   };
 }
